@@ -1,0 +1,307 @@
+<!DOCTYPE html><html class="light" lang="es" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Bunny Market | Vendor Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-container": "#7d8490",
+                    "outline-variant": "#cfc4c5",
+                    "secondary": "#555f6d",
+                    "tertiary-fixed-dim": "#c0c7d3",
+                    "secondary-container": "#d6e0f1",
+                    "inverse-surface": "#2e3132",
+                    "inverse-primary": "#c6c6c6",
+                    "on-primary-fixed": "#1b1b1b",
+                    "surface-variant": "#e1e2e4",
+                    "primary-fixed-dim": "#c6c6c6",
+                    "on-tertiary-fixed": "#151c25",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed-variant": "#404752",
+                    "inverse-on-surface": "#f0f1f3",
+                    "surface-container-high": "#e7e8ea",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed-dim": "#bdc7d8",
+                    "secondary-fixed": "#d9e3f4",
+                    "surface": "#f8f9fb",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed": "#dce3f0",
+                    "on-secondary-fixed": "#121c28",
+                    "primary-container": "#1b1b1b",
+                    "surface-container": "#edeef0",
+                    "on-surface-variant": "#4c4546",
+                    "on-primary-fixed-variant": "#474747",
+                    "primary": "#000000",
+                    "surface-dim": "#d9dadc",
+                    "on-secondary-fixed-variant": "#3e4755",
+                    "surface-tint": "#5e5e5e",
+                    "outline": "#7e7576",
+                    "background": "#f8f9fb",
+                    "on-secondary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-low": "#f3f4f6",
+                    "on-secondary-container": "#596372",
+                    "primary-fixed": "#e2e2e2",
+                    "on-background": "#191c1e",
+                    "surface-container-highest": "#e1e2e4",
+                    "on-error": "#ffffff",
+                    "surface-bright": "#f8f9fb",
+                    "tertiary": "#000000",
+                    "on-primary-container": "#848484",
+                    "on-surface": "#191c1e",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#151c25"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "lg": "24px",
+                    "container-max": "1280px",
+                    "xs": "4px",
+                    "md": "16px",
+                    "sm": "8px",
+                    "base": "4px",
+                    "xl": "48px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "headline-xl": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden">
+<!-- Top Navigation (Shell Implementation) -->
+<header class="bg-surface/80 backdrop-blur-md sticky top-0 z-50 border-b border-outline-variant w-full">
+<div class="flex justify-between items-center px-lg py-md max-w-container-max mx-auto w-full">
+<a href="{{DATA:SCREEN:SCREEN_9}}" class="flex items-center gap-md hover:opacity-70 transition-opacity">
+<img alt="Bunny Market Logo" class="w-10 h-10 object-contain" src="__PRESERVED_IMG_0__">
+<span class="text-headline-md font-headline-md font-bold text-primary uppercase tracking-tighter">YLG</span>
+</a>
+<div class="hidden md:flex items-center gap-lg">
+<a class="text-label-md font-label-md text-secondary hover:text-primary transition-colors" href="explorar/index.html">Explorar</a>
+<a class="text-label-md font-label-md text-primary active-nav-border pb-1" href="#">Vender</a>
+<div class="h-6 w-px bg-outline-variant mx-sm"></div>
+<div class="flex items-center gap-md">
+<button class="hover:opacity-70 transition-opacity"><span class="material-symbols-outlined">favorite</span></button>
+<button class="hover:opacity-70 transition-opacity"><span class="material-symbols-outlined">shopping_bag</span></button>
+<a href="{{DATA:SCREEN:SCREEN_6}}" class="w-8 h-8 rounded-full bg-surface-variant border border-outline flex items-center justify-center hover:border-primary transition-all">
+<span class="material-symbols-outlined text-[16px]">person</span>
+</a>
+</div>
+</div>
+</div>
+</header>
+<div class="flex max-w-container-max mx-auto min-h-screen">
+<!-- Sidebar Navigation -->
+<aside class="hidden md:flex flex-col w-64 border-r border-outline-variant pt-xl px-md sticky top-[73px] h-[calc(100vh-73px)]">
+<nav class="space-y-sm">
+<a class="sidebar-item-active flex items-center gap-sm px-md py-sm rounded-lg text-label-md transition-all group" href="{{DATA:SCREEN:SCREEN_7}}">
+<span class="material-symbols-outlined">storefront</span>
+<span class="">Mi Tienda</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm rounded-lg text-label-md text-on-tertiary-container hover:bg-surface-container transition-all group" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="">Productos</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm rounded-lg text-label-md text-on-tertiary-container hover:bg-surface-container transition-all group" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="">Ventas</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm rounded-lg text-label-md text-on-tertiary-container hover:bg-surface-container transition-all group" href="{{DATA:SCREEN:SCREEN_7}}">
+<span class="material-symbols-outlined">settings</span>
+<span class="">Configuración</span>
+</a>
+</nav>
+<div class="mt-auto pb-xl">
+<div class="p-md bg-surface-container-low rounded-lg border border-outline-variant">
+<p class="text-label-sm uppercase tracking-widest text-on-tertiary-container mb-xs">Plan Actual</p>
+<p class="text-label-md font-bold text-primary mb-sm">Boutique Pro</p>
+<button class="w-full text-center py-xs border border-primary text-label-sm font-bold rounded-lg hover:bg-primary hover:text-on-primary transition-all">Mejorar</button>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 p-lg md:p-xl space-y-xl bg-surface">
+<!-- Header Section -->
+<header class="flex flex-col md:flex-row md:items-end justify-between gap-md">
+<div>
+<p class="text-label-sm uppercase tracking-widest text-secondary font-bold">Resumen de cuenta</p>
+<h1 class="text-headline-xl font-headline-xl text-primary mt-xs">Dashboard</h1>
+</div>
+<div class="flex items-center gap-sm">
+<button class="px-md py-sm border border-outline text-label-md rounded flex items-center gap-xs hover:bg-surface-variant transition-all">
+<span class="material-symbols-outlined">calendar_today</span>
+                        Enero 2024
+                    </button>
+<a href="{{DATA:SCREEN:SCREEN_7}}" class="px-md py-sm bg-primary text-on-primary text-label-md rounded font-bold hover:opacity-90 transition-all flex items-center justify-center">
+                        Crear Producto
+                    </a>
+</div>
+</header>
+<!-- Stats Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+<div class="bg-surface-container-lowest border border-outline-variant p-lg hover:border-primary transition-colors cursor-default">
+<div class="flex justify-between items-start mb-md">
+<span class="material-symbols-outlined text-secondary">trending_up</span>
+<span class="text-label-sm text-on-tertiary-container font-medium">+12.4%</span>
+</div>
+<p class="text-headline-md font-headline-md text-primary">$12,450.00</p>
+<p class="text-label-sm text-secondary uppercase tracking-widest mt-xs">Ventas del mes</p>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-lg hover:border-primary transition-colors cursor-default">
+<div class="flex justify-between items-start mb-md">
+<span class="material-symbols-outlined text-secondary">visibility</span>
+<span class="text-label-sm text-on-tertiary-container font-medium">+5.2%</span>
+</div>
+<p class="text-headline-md font-headline-md text-primary">3,842</p>
+<p class="text-label-sm text-secondary uppercase tracking-widest mt-xs">Visitas</p>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-lg hover:border-primary transition-colors cursor-default">
+<div class="flex justify-between items-start mb-md">
+<span class="material-symbols-outlined text-secondary">pending_actions</span>
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+</div>
+<p class="text-headline-md font-headline-md text-primary">14</p>
+<p class="text-label-sm text-secondary uppercase tracking-widest mt-xs">Pedidos pendientes</p>
+</div>
+</section>
+<!-- Main Features Row -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-xl">
+<!-- Quick Action Card -->
+<div class="lg:col-span-1 relative overflow-hidden group border border-primary bg-primary p-lg flex flex-col justify-between h-[400px]">
+<div class="absolute -right-8 -top-8 opacity-10 group-hover:scale-110 transition-transform duration-700">
+<img alt="Decorative Logo" class="w-48 h-48 filter invert" src="data:image/png;base64,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">
+</div>
+<div class="relative z-10">
+<span class="text-on-primary/60 text-label-sm uppercase tracking-[0.2em]">Visual &amp; Branding</span>
+<h2 class="text-headline-lg font-headline-lg text-on-primary mt-sm leading-tight">Personalizar mi espacio</h2>
+</div>
+<div class="relative z-10 space-y-md">
+<p class="text-on-primary/80 text-body-md">Eleva la presentación de tu tienda con tipografías exclusivas y banners de alta resolución.</p>
+<a href="{{DATA:SCREEN:SCREEN_7}}" class="w-full py-md bg-on-primary text-primary font-bold text-label-md uppercase tracking-widest flex items-center justify-center gap-sm hover:bg-surface-container transition-all">
+                            Configurar <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Recent Activity/Sales List -->
+<div class="lg:col-span-2 bg-surface-container-lowest border border-outline-variant p-lg">
+<div class="flex justify-between items-center mb-xl">
+<h3 class="text-label-md font-bold uppercase tracking-widest">Actividad Reciente</h3>
+<a class="text-label-sm underline hover:opacity-70 transition-opacity" href="#">Ver historial</a>
+</div>
+<div class="space-y-gutter">
+<!-- Activity Item -->
+<div class="flex items-center justify-between pb-md border-b border-outline-variant">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 bg-surface-container border border-outline-variant">
+<div class="w-full h-full bg-cover bg-center" data-alt="Close-up photograph of a minimalist high-end white linen shirt against a neutral grey studio background, reflecting a curated boutique aesthetic with sharp focus and professional lighting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBMoPDv-42mZ7HNCG6db2n422je6wm2G6dG4OWJ4os_dFY84B9OQduCt8SctftNTLopH2I0gDOrbaW_HSN-47pI1umUp40OKGsYpJb6ktHjPDlyTgmP9lOkt4RpFveTUTp1XfCX6y3JHq48AfzsEHendFRVFEUz_FB_VFCvWLpWHOMJyeByQ1jpZtKGl2UX7bvVLdgObTe97ozxYxKlIxb2s8tdX0VZiFUPpOvgCUgN9jTO75E-1qv9A-uUAJcFfcc1OOkgyuLPtzo')"></div>
+</div>
+<div>
+<p class="font-bold text-primary">Pedido #8294</p>
+<p class="text-label-sm text-secondary">Camisa Lino 'Essential' x 1</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-bold text-primary">$85.00</p>
+<p class="text-label-sm text-on-tertiary-container">Hace 2 horas</p>
+</div>
+</div>
+<!-- Activity Item -->
+<div class="flex items-center justify-between pb-md border-b border-outline-variant">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 bg-surface-container border border-outline-variant">
+<div class="w-full h-full bg-cover bg-center" data-alt="Macro detail of high-quality indigo denim texture with precision stitching, shot in a minimalist studio environment with soft natural lighting and monochromatic shadows." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCb2M2AswETWgUluUo16c_LWsWBbXtVOu78r9JCyJ42g9WqN9kkvXKqWQKg8n1JKnJu5Xokk6f8BQd45OygFzStyCKKtBJgXHKKDMpPksq0tzJbRobaktqJuYYH1xZh0MzPf-Ox935le1SmyiI6drDNA2tv4qsjLmcd2bkZHft2oYj2eA3Kx9KlZ6i97xVo7xkM6_HjgSldmTxQ-ll6fU4VzXqu--3rxHGeTvp0B7PESjsbGGCv5Rpw7NXabpS2u4mumGrdL16kDDc')"></div>
+</div>
+<div>
+<p class="font-bold text-primary">Pedido #8293</p>
+<p class="text-label-sm text-secondary">Jeans Raw Selvedge x 2</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-bold text-primary">$320.00</p>
+<p class="text-label-sm text-on-tertiary-container">Hace 5 horas</p>
+</div>
+</div>
+<!-- Activity Item -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 bg-surface-container border border-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">person_add</span>
+</div>
+<div>
+<p class="font-bold text-primary">Nuevo seguidor</p>
+<p class="text-label-sm text-secondary">@marcus_vibe ha comenzado a seguirte</p>
+</div>
+</div>
+<div class="text-right">
+<span class="px-sm py-xs bg-surface-container text-label-sm rounded uppercase font-bold">Social</span>
+<p class="text-label-sm text-on-tertiary-container mt-xs">Ayer</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Banner / Tip -->
+<section class="border border-outline-variant p-xl flex flex-col md:flex-row items-center gap-xl bg-surface-container-lowest">
+<div class="flex-1 space-y-md">
+<h4 class="text-headline-md font-headline-md">¿Necesitas ayuda con tu inventario?</h4>
+<p class="text-body-md text-secondary max-w-xl">Nuestra nueva herramienta de importación masiva permite sincronizar tus productos de otras plataformas en cuestión de segundos. Mantén tu stock siempre al día con YLG Sync.</p>
+<button class="text-label-md font-bold underline hover:opacity-70 transition-opacity">Leer la guía completa</button>
+</div>
+<div class="w-full md:w-64 h-40 bg-surface-container relative">
+<div class="absolute inset-0 flex items-center justify-center opacity-20">
+<img alt="Logo Watermark" class="w-24 h-24 grayscale" src="data:image/png;base64,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">
+</div>
+
+</div>
+</section>
+</main>
+</div>
+<!-- Footer Implementation -->
+<footer class="bg-surface border-t border-outline-variant py-xl mt-xl">
+<div class="flex flex-col md:flex-row justify-between items-center px-lg max-w-container-max mx-auto gap-md">
+<a href="{{DATA:SCREEN:SCREEN_9}}" class="flex items-center gap-sm hover:opacity-70 transition-opacity">
+<img alt="Footer Logo" class="w-8 h-8 grayscale contrast-125" src="__PRESERVED_IMG_3__">
+<span class="text-headline-sm font-headline-sm font-bold text-primary">YLG</span>
+</a>
+
+
+</div>
+</footer>
+<!-- Interactive script for active state mock -->
+<script src="pan.js"></script>
+
+
+
+
+</body></html>
